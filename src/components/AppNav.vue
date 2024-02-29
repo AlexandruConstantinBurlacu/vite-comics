@@ -9,6 +9,8 @@
         "GAMES", "COLLECTIBLES", "VIDEOS", "FANS",
         "NEWS", "SHOP"
         ],
+
+        hoverCategoryIndex: 2,
     }
   }
 
@@ -26,7 +28,7 @@
         </div>
 
         <ul class="selection">
-            <li v-for="currentCategory in categories">
+            <li v-for="(currentCategory, index) in categories" :class="index == hoverCategoryIndex ? 'hover' : ''">
                 {{ currentCategory }}
             </li>
         </ul>
@@ -42,6 +44,24 @@
 nav {
     display: flex;
     justify-content: center;
+    align-items: center;
+   
+    ul {
+        display: flex;
+        list-style-type: none;
+        gap: 34px;
+
+        li {
+            font-weight: 600;
+            cursor: pointer;
+
+            &.hover {
+                color: #0282f9;
+            }
+
+        }
+    }
+    
 }
 
 
